@@ -1,0 +1,27 @@
+1. Hours to complete the project: about 21 hours
+
+2. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Brute-force Implementation): 
+   Began by initializing 2 queues, one for the keys and one for the values. I use the key queue size to determine the size of the table and whether the table is empty or not. to add to the table I just enqueue items onto both the value and the key queues. To get values I needed to iterate through the key queue, keeping track of how far down the queue I travel before finding the corresponding key, and using that number to travel down the value queue to find the corresponding value. To find if points are contained within the symbol table, I iterate through the table until I find the point and return true or false accordingly. To return all the points in the symbol table I just returned the key queue, since it is already an iterable. For range I just iterate through the key queue and check each point using the rectangle.contains() method. for nearest point I iterate through the key queue and compare the distance between the current closest point and the current iterations point and replace closest or leave it depending on which one is closest. For k points (this was the hardest one of this project since working with linked list queues is tricky when wanting to handle specific indices) I made 3 extra queues, a temp 1, a temp 2, and a final. I copy all my keys from the key queue into the first temp queue, I then iterate through the queue and check each point for the closest point, replacing a closest point variable with the closer one and dequeue the temp1 queue into the temp2 queue, the variable saved in closest is dequeued into that variable so that it is no longer within the dataset that I am testing. After all numbers have been tested the closest point gets saved into the final queue. The temp2 queue then empties itself back into the temp1 queue and tests again with the previous closest point no longer within the dataset. this way I get a new unique closest number each time. 
+
+   Problem 2 (2d-tree Implementation): 
+   To begin I must comment that although I managed to get the program to work in a way that I think is close to what the assignment is asking, I really just do not see the advantage or working with such a confusing structure. Why are we flipflopping between testing our points against x and y? I don't see the advantage to it at all. The functions I did for this problem are essentially the same as the first problem but with a ton of true/false statements that handle putting every element into its specified order. This took so much of my time and I've been scrambling to finish this to be able to turn it in that if I started describing all the process that went into figuring this out, I wouldn't make the turn in deadline. so to keep it as concise as possible, each function is mostly a variation of my initial put method that checks lr to decide whether i'm checking the x or the y key and determining its left and right position based on whether the current x or y is greater or less than the previous. it seems so incredibly convoluted and I hated every moment of it. 
+
+3. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   ...                ...          ...
+
+4. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   Note: BrutePointST first 5 values seem completely wrong in the example code.
+   Value is added as i++ starting from 0 so how can any of the first 5 values be anything other than 0-4 not only that. the example code AND the main code in the project is showing SIX results... What?
+   
+   Note: in KdTreePointST, using the term 'nearest' 6 times, in place of several different functions, AND variables, is EXTREMELY confusing.
